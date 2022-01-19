@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:44:14 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/18 14:14:23 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/19 15:46:35 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	*ft_register(t_list *sta, v_list *st, int len)
 {
 	t_list	*tmp;
 	int	i;
-	
+	int count;
+
+	count = 0;
 	i = 0;
 	tmp = sta;
 	st->log = malloc(sizeof(int) * len);
@@ -25,8 +27,10 @@ int	*ft_register(t_list *sta, v_list *st, int len)
 		st->log[i] = tmp->content;
 		i++;
 		tmp = tmp->next;
+		count++;
 	}
 	st->log = ft_bubblesortright(st->log, len);
+	st->lenlog = count;
 	return (st->log);
 }
 
