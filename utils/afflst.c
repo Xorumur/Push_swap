@@ -1,32 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   help_main.c                                        :+:      :+:    :+:   */
+/*   afflst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:24:23 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/21 12:03:57 by mlecherb         ###   ########.fr       */
+/*   Created: 2022/01/21 10:43:04 by mlecherb          #+#    #+#             */
+/*   Updated: 2022/01/21 17:10:09 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-int ft_attrib(t_list **sta, int argc, char **argv)
+static int		ft_aff(t_list sta)
 {
-	int i;
-	char **split;
+	int tmp;
 	
-	i = 0;
-	if (argc == 2) // S'il s'agit d'une string : "5 1 2 3"
-		split = ft_split(argv[1], ' '); 
-	else
-		split = &argv[1]; // SAUTE LE PREMIER ARGUMENT (./a.out)
-	*sta = ft_lstnew(ft_atoi(split[i++]));
-	while (split[i])
+	tmp = sta.content;
+	return (tmp);
+}
+
+void	ft_afflst(t_list *sta)
+{
+	t_list *tmp;
+
+	tmp = sta;
+	while (tmp != NULL)
 	{
-		ft_lstadd_back(sta, ft_lstnew(ft_atoi(split[i])));
+		printf("[%i]\n", ft_aff(*tmp));
+		tmp = tmp->next;
+	}
+	printf("---\n");
+}
+
+void ft_afflog(int *log, int len)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		printf("LOG[%i]\n", log[i]);
 		i++;
 	}
-	return (ft_lstsize(*sta));
 }

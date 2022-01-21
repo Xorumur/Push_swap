@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:08:51 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/19 17:15:44 by mlecherb         ###   ########.fr       */
+/*   Created: 2022/01/20 16:58:48 by mlecherb          #+#    #+#             */
+/*   Updated: 2022/01/21 17:10:59 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct STOCKVAL
-{
-	int l1;
-	int l2;
-	int l3;
-	int l4;
-	int l5;
-	int l6;
-	int len;
-	int *log;
-	int lenlog;
-}		v_list;
-
 /*			RULES		*/
 void 	ft_pa(t_list *new, t_list **sta, t_list **stb);
 void 	ft_pb(t_list *new, t_list **sta, t_list **stb);
@@ -46,13 +33,6 @@ void	ft_rra(t_list **sta);
 void	ft_rrb(t_list **stb);
 void	ft_sb(t_list **stb);
 void	ft_sa(t_list *sta);
-/*			UTILS		*/
-char	**ft_split(char *s, char c);
-int		ft_atoi(const char *str);
-int 	ft_attrib(t_list **sta, int argc, char **argv);
-/*			AFFICHAGE	*/
-void	ft_afflst(t_list *sta);
-void 	ft_affst(v_list st);
 /*			LST			*/
 void	ft_lstdeletefirst(t_list **lst);
 int		ft_lstsize(t_list *lst);
@@ -61,29 +41,49 @@ t_list	*ft_lstnew(int content);
 void	ft_lstadd_front(t_list **alst, t_list *new);
 void	ft_lstadd_back(t_list **alst, t_list *new);
 void 	ft_lstdeletelast(t_list *lst);
-/*			SORTING		*/
+void	delete_linked_list(t_list **sta);
+/*			AFFICHAGE	*/
+void	ft_afflst(t_list *sta);
+void 	ft_afflog(int *log, int len);
+/*			MAIN		*/
+int		ft_attrib(t_list **sta, int argc, char **argv);
+char	**ft_split(char *s, char c);
+int		ft_atoi(const char *str);
+/*			SORT		*/
+int		*det_first_pack(t_list **sta, int *pack);
+void	bottom_b(t_list **sta, t_list **stb);
+void	top_b(t_list **sta, t_list **stb);
+void 	bottom_a(t_list **sta);
+void	det_case(int *pack, t_list **sta);
+int		case_pack(int *log);
+int		*parting(t_list **sta);
+int		*stack_log(t_list **sta);
 int		*ft_bubblesortright(int *log, int len);
-int		*ft_register(t_list *sta, v_list *st, int len);
-void 	ft_chunker(v_list *st, t_list *sta, int len);
-int 	ft_pos_first_chunk(t_list *sta, int max, int min);
-int 	ft_pos_last_chunk(t_list *sta, int max, int min);
-void 	ft_build(t_list **sta, v_list st, int max, int min);
-int		ft_elvalidator(t_list *sta, int max, int min, v_list st);
-void	ft_orga(t_list **stb);
-void	ft_orga2(t_list **stb, int max);
-void	ft_sort(t_list **stb);
-void	ft_cone(v_list st, t_list **sta, t_list **stb);
-void	ft_ctwo(v_list st, t_list **sta, t_list **stb);
-void	ft_ctree(v_list st, t_list **sta, t_list **stb);
-void	ft_cfour(v_list st, t_list **sta, t_list **stb);
-void	ft_cfive(v_list st, t_list **sta, t_list **stb);
-// void 	ft_push_back(v_list st, t_list **sta, t_list **stb);
-// void 	ft_apply_rules(int pos, t_list **stb, int len, int content);
-// int 	ft_det_pos(int content, t_list **stb);
-void	ft_pushback(t_list **sta, t_list **stb, v_list st);
-int		ft_det_pos(t_list **stb, int content);
-void	send_top_by_rrb(t_list **stb, int content);
-void	send_top_by_rb(t_list **stb, int content);
-void 	fill_node(t_list **stb);
+void	cutting(t_list **sta, t_list **stb);
+void	assist_cutting(t_list **sta, t_list **stb, int end, int *log);
+int		ft_first_max(t_list **sta, int *log);
+void 	sizetwo(t_list **sta);
+/*			QUICKSORT	*/
+void 	ft_utd(t_list **sta);
+void 	ft_dtu(t_list **sta);
+void 	ft_dut(t_list **sta);
+void	ft_tud(t_list **sta);
+void	ft_tdu(t_list **sta);
 
-#endif 
+void 	sizetree(t_list **sta);
+void 	ft_utd3(t_list **sta);
+void 	ft_dtu3(t_list **sta);
+void 	ft_dut3(t_list **sta);
+void	ft_tud3(t_list **sta);
+void	ft_tdu3(t_list **sta);
+
+void 	push_a(t_list **sta, t_list **stb);
+int		*log_stb(t_list **stb, int *log);
+void	ft_quick(t_list **sta);
+void	first_encounter(t_list **stb, int *log, int len);
+void 	last_two(t_list **stb, t_list **sta);
+
+void 	last_four(t_list **stb);
+void	put_min_bot(t_list **stb, int min);
+void	push_elem(t_list **sta, t_list **stb);
+#endif

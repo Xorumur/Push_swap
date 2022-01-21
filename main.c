@@ -5,39 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:14:39 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/19 17:19:41 by mlecherb         ###   ########.fr       */
+/*   Created: 2022/01/20 17:17:22 by mlecherb          #+#    #+#             */
+/*   Updated: 2022/01/21 17:04:22 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ps.h"
-
-// Faire un checker des nombres entre en parametre
+#include "includes/ps.h"
 
 int	main(int argc, char **argv)
 {
 	t_list	*sta = NULL;
 	t_list	*stb = NULL;
-	v_list 	st;
-	int len;
 	int i;
+	int *log;
 
 	i = 0;
-	st.len = ft_attrib(&sta, argc, argv);
-	ft_chunker(&st, sta, st.len);
-	printf("A");
-	ft_cone(st, &sta, &stb);
-	ft_ctwo(st, &sta, &stb);
-	ft_ctree(st, &sta, &stb);
-	ft_cfour(st, &sta, &stb);
-	ft_cfive(st, &sta, &stb);
-	len = st.lenlog;
-	// while (i < len)
+	ft_attrib(&sta, argc, argv);
+	// det_case(pack);
+	// while (i < 3)
 	// {
-	// 	printf("[%i]\n",st.log[i]);
+	// 	printf("[%i]\n", pack[i]);
 	// 	i++;
 	// }
-	// ft_afflst(stb);
-	ft_pushback(&sta, &stb, st);
+	// printf("%i\n", find_mmm(pack));
+	if (ft_lstsize(sta) == 3)
+		sizetree(&sta);
 	ft_afflst(sta);
+	while (ft_lstsize(sta) > 3)
+	{
+		cutting(&sta, &stb);
+		ft_afflst(sta);
+		ft_afflst(stb);
+		printf("AHAH");
+	}
+	log = parting(&sta);
+	printf("part[%i]\n", log[0]);
+	printf("part[%i]\n", log[1]);
+	if (ft_lstsize(sta) == 2)
+		sizetwo(&sta);
+	while (stb && ft_lstsize(stb) > 4)	
+	{
+		push_a(&sta, &stb);
+		ft_quick(&sta);
+	}
+	ft_afflst(stb);
+	if (ft_lstsize(stb) == 4)
+	{
+		last_four(&stb);
+		ft_afflst(stb);
+		push_elem(&sta, &stb);
+		
+	}
+	if (ft_lstsize(stb) == 2)
+	 	last_two(&stb, &sta);
+	if (ft_lstsize(stb) == 1)
+		ft_pa(ft_lstnew(stb->content), &sta, &stb);
+	
+	ft_afflst(stb);
+	ft_afflst(sta);
+
 }

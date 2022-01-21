@@ -1,32 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   help_main.c                                        :+:      :+:    :+:   */
+/*   sizetree.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 11:24:23 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/21 12:03:57 by mlecherb         ###   ########.fr       */
+/*   Created: 2022/01/21 13:43:24 by mlecherb          #+#    #+#             */
+/*   Updated: 2022/01/21 15:52:16 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-int ft_attrib(t_list **sta, int argc, char **argv)
+void ft_utd3(t_list **sta)
 {
-	int i;
-	char **split;
-	
-	i = 0;
-	if (argc == 2) // S'il s'agit d'une string : "5 1 2 3"
-		split = ft_split(argv[1], ' '); 
-	else
-		split = &argv[1]; // SAUTE LE PREMIER ARGUMENT (./a.out)
-	*sta = ft_lstnew(ft_atoi(split[i++]));
-	while (split[i])
-	{
-		ft_lstadd_back(sta, ft_lstnew(ft_atoi(split[i])));
-		i++;
-	}
-	return (ft_lstsize(*sta));
+	t_list *tmp;
+
+	tmp = *sta;
+	ft_sa(*sta);
+	ft_ra(ft_lstnew(tmp->content), sta);
+}
+
+void ft_dut3(t_list **sta)
+{
+	ft_sa(*sta);
+}
+
+void ft_dtu3(t_list **sta)
+{
+	t_list *tmp;
+
+	tmp = *sta;
+	ft_rra(sta);
+}
+
+void	ft_tud3(t_list **sta)
+{
+	t_list	*tmp;
+
+	tmp = *sta;
+	ft_ra(ft_lstnew(tmp->content), sta);
+}
+
+void	ft_tdu3(t_list **sta)
+{
+	t_list	*tmp;
+
+	tmp = *sta;
+	ft_sa(*sta);
+	ft_rra(sta);
 }

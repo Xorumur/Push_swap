@@ -6,7 +6,7 @@
 #    By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 11:30:09 by mlecherb          #+#    #+#              #
-#    Updated: 2022/01/19 17:14:19 by mlecherb         ###   ########.fr        #
+#    Updated: 2022/01/21 14:09:48 by mlecherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ OBJ		= $(SRCS:.c=.o)
 
 CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 
-SRCS	= main.c utils/affichage.c utils/atoi.c utils/help_main.c utils/split.c \
-			utils/ft_lst/lst_utils.c utils/ft_lst/lst_utils2.c sorting/log.c \
-			sorting/chunk.c sorting/building_b.c rules/pa_pb.c rules/ra_rb.c \
-			rules/rra_rrb.c sorting/tri_b.c rules/sa_sb.c sorting/chunk1.c \
-			sorting/push_back.c
+SRCS	=	main.c utils/atoi.c utils/help_main.c utils/split.c sorting/det_case.c \
+			ft_lst/lst_utils.c ft_lst/lst_utils2.c sorting/quicksort.c rules/pa_pb.c \
+			rules/ra_rb.c rules/rra_rrb.c rules/sa_sb.c utils/afflst.c \
+			sorting/first_step.c sorting/parting.c sorting/assist.c sorting/exception.c \
+			sorting/sizetree.c sorting/push_a/push_a.c
 			
 
 all: $(NAME)
@@ -35,7 +35,7 @@ fclean: 	clean
 			rm -f $(NAME)
 
 norme:
-			norminette -R CheckForbiddenSourceHeader $(SRCS) ${LIB}
+			norminette -R CheckForbiddenSourceHeader $(SRCS)
 
 re:			fclean all
 
