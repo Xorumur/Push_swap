@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:27:33 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/20 17:11:09 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:25:48 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstdeletefirst(t_list **lst)
 {
-	t_list *tmp = NULL;
+	t_list	*tmp;
 
+	tmp = NULL;
 	if (lst == NULL || *lst == NULL)
 		return ;
 	tmp = *lst;
@@ -37,4 +38,38 @@ int	ft_lstsize(t_list *lst)
 		lst = lst->next;
 	}
 	return (i);
+}
+
+void	ft_lstdeletelast(t_list *lst)
+{
+	t_list	*del;
+	t_list	*temp;
+
+	temp = lst;
+	if (temp && temp->next && !temp->next->next)
+	{
+		del = temp->next;
+		free(del);
+	}
+	else
+		while (temp->next->next != NULL)
+			temp = temp->next;
+	del = temp->next;
+	free(del);
+	temp->next = NULL;
+}
+
+void	delete_linked_list(t_list **sta)
+{
+	t_list	*current;
+	t_list	*next;
+
+	current = *sta;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*sta = NULL;
 }

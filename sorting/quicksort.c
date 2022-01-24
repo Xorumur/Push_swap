@@ -6,15 +6,15 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:34:06 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/21 11:12:12 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:14:11 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-void ft_utd(t_list **sta)
+void	ft_utd(t_list **sta)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *sta;
 	ft_ra(ft_lstnew(tmp->content), sta);
@@ -23,14 +23,14 @@ void ft_utd(t_list **sta)
 	ft_rra(sta);
 }
 
-void ft_dut(t_list **sta)
+void	ft_dut(t_list **sta)
 {
 	ft_sa(*sta);
 }
 
-void ft_dtu(t_list **sta)
+void	ft_dtu(t_list **sta)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *sta;
 	ft_ra(ft_lstnew(tmp->content), sta);

@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 11:04:46 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/19 11:51:27 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:20:33 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 rien s’il n’y en a qu’un ou aucun.*/
 void	ft_sa(t_list *sta)
 {
-	int temp;
-	
+	int	temp;
+
 	if (!sta || !sta->next)
 		return ;
 	temp = sta->content;
@@ -26,12 +26,11 @@ void	ft_sa(t_list *sta)
 	write(1, "sa\n", 3);
 }
 
-
 /*swap b - intervertit les 2 premiers éléments au sommet de la pile b. Ne fait
 rien s’il n’y en a qu’un ou aucun.*/
 void	ft_sb(t_list **stb)
 {
-	int temp;
+	int	temp;
 
 	temp = (*stb)->content;
 	(*stb)->content = (*stb)->next->content;

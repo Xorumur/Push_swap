@@ -6,23 +6,23 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:43:04 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/21 17:10:09 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:06:44 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static int		ft_aff(t_list sta)
+static int	ft_aff(t_list sta)
 {
-	int tmp;
-	
+	int	tmp;
+
 	tmp = sta.content;
 	return (tmp);
 }
 
 void	ft_afflst(t_list *sta)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = sta;
 	while (tmp != NULL)
@@ -33,7 +33,7 @@ void	ft_afflst(t_list *sta)
 	printf("---\n");
 }
 
-void ft_afflog(int *log, int len)
+void	ft_afflog(int *log, int len)
 {
 	int	i;
 

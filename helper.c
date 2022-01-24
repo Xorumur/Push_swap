@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 17:17:22 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 18:26:27 by mlecherb         ###   ########.fr       */
+/*   Created: 2022/01/24 17:30:31 by mlecherb          #+#    #+#             */
+/*   Updated: 2022/01/24 17:36:16 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ps.h"
-#include "includes/ps.h"
 
-int	main(int argc, char **argv)
+void	eco_space(t_list *stb, t_list *sta, int *log)
 {
-	t_list	*sta;
-	t_list	*stb;
-	int		*log;
-
-	sta = NULL;
-	stb = NULL;
-	log = NULL;
-	ft_attrib(&sta, argc, argv);
-	// eco_space(stb, sta, log);
-	// delete_linked_list(&sta);
-	// delete_linked_list(&stb);
-	if (ft_checker(&sta) == -1)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
 	if (ft_lstsize(sta) == 3)
 		sizetree(&sta);
 	while (ft_lstsize(sta) > 4)
 		cutting(&sta, &stb);
-	if (ft_lstsize(sta) == 3)
-		sizetree(&sta);
 	log = parting(&sta);
 	if (ft_lstsize(sta) == 2)
 		sizetwo(&sta);
@@ -45,10 +26,8 @@ int	main(int argc, char **argv)
 		push_a(&sta, &stb);
 		ft_quick(&sta);
 	}
-	// ft_afflst(stb);
 	if (ft_lstsize(stb) == 2)
 		last_two(&stb, &sta);
 	if (ft_lstsize(stb) == 1)
 		ft_pa(ft_lstnew(stb->content), &sta, &stb);
-	// ft_afflst(sta);
 }

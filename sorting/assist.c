@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:26:14 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/21 17:05:46 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:20:01 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	assist_cutting(t_list **sta, t_list **stb, int end, int *log)
 			top_b(sta, stb);
 		else if (tmp->content > log[1])
 			bottom_a(sta);
-		tmp = *sta;	
+		tmp = *sta;
 	}
 }
 
-void last_four(t_list **stb)
+void	last_four(t_list **stb)
 {
 	t_list	*tmp;
 	int		min;
@@ -43,7 +43,7 @@ void last_four(t_list **stb)
 		tmp = tmp->next;
 	}
 	put_min_bot(stb, min);
-;}
+}
 
 void	put_min_bot(t_list **stb, int min)
 {
@@ -60,7 +60,7 @@ void	put_min_bot(t_list **stb, int min)
 
 void	push_elem(t_list **sta, t_list **stb)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stb;
 	ft_pa(ft_lstnew(tmp->content), sta, stb);
@@ -68,5 +68,5 @@ void	push_elem(t_list **sta, t_list **stb)
 	tmp = *stb;
 	ft_pa(ft_lstnew(tmp->content), sta, stb);
 	tmp = *stb;
-	ft_pa(ft_lstnew(tmp->content), sta, stb);		
+	ft_pa(ft_lstnew(tmp->content), sta, stb);
 }

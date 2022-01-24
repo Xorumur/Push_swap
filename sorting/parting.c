@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:13:22 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/21 17:06:07 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:16:10 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	*stack_log(t_list **sta)
 int	*ft_bubblesortright(int *log, int len)
 {
 	int	i;
-	int j;
+	int	j;
 	int	tmp;
-	
+
 	tmp = 0;
 	i = 0;
 	while (i < len)
@@ -65,7 +65,7 @@ int	*parting(t_list **sta)
 	int	size;
 	int	*part;
 	int	*log;
-	int i;
+	int	i;
 
 	i = 0;
 	part = malloc(sizeof(int) * 2);
@@ -76,7 +76,7 @@ int	*parting(t_list **sta)
 	}
 	size = ft_lstsize(*sta);
 	log = ft_bubblesortright(log, size);
-	part[0] = log[size/3];
-	part[1] = log[2*size/3];
+	part[0] = log[size / 3];
+	part[1] = log[2 * size / 3];
 	return (part);
 }
