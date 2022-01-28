@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:17:22 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 18:26:27 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/01/28 09:24:31 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ int	main(int argc, char **argv)
 {
 	t_list	*sta;
 	t_list	*stb;
-	int		*log;
 
 	sta = NULL;
 	stb = NULL;
-	log = NULL;
 	ft_attrib(&sta, argc, argv);
 	// eco_space(stb, sta, log);
 	// delete_linked_list(&sta);
@@ -33,11 +31,11 @@ int	main(int argc, char **argv)
 	}
 	if (ft_lstsize(sta) == 3)
 		sizetree(&sta);
-	while (ft_lstsize(sta) > 4)
+	while (ft_lstsize(sta) > 3)
 		cutting(&sta, &stb);
+	// ft_afflst(sta);
 	if (ft_lstsize(sta) == 3)
 		sizetree(&sta);
-	log = parting(&sta);
 	if (ft_lstsize(sta) == 2)
 		sizetwo(&sta);
 	while (stb && ft_lstsize(stb) >= 4)
