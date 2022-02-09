@@ -6,11 +6,10 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:17:22 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 14:44:52 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:45:50 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ps.h"
 #include "includes/ps.h"
 
 void	helper(t_list **sta, t_list **stb)
@@ -60,6 +59,29 @@ int	check_letter(char **argv)
 	return (0);
 }
 
+static int	is_tri(t_list **sta)
+{
+	t_list	*tmp;
+
+	tmp = *sta;
+	while (tmp->next != NULL)
+	{
+		if (tmp->next->next != NULL
+			&& tmp->content > tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+static void	rac(t_list **sta, t_list **stb)
+{
+	if (ft_lstsize(*sta) == 3)
+		sizetree(sta);
+	while (ft_lstsize(*sta) > 3)
+		cutting(sta, stb);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*sta;
@@ -67,31 +89,22 @@ int	main(int argc, char **argv)
 
 	sta = NULL;
 	stb = NULL;
-	if (argc == 1)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
 	ft_attrib(&sta, argc, argv);
-	if (ft_checker(&sta) == -1 || check_letter(&argv[1]) == -1)
+	if (ft_checker(&sta) == -1 || check_letter(&argv[1]) == -1
+		|| ft_attrib(&sta, argc, argv))
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	if (ft_lstsize(sta) == 3)
-		sizetree(&sta);
-	while (ft_lstsize(sta) > 3)
-		cutting(&sta, &stb);
+	if (is_tri(&sta) == 1)
+		return (0);
+	if (ft_lstsize(sta) == 5)
+	{
+		sizefive(&sta, &stb);
+		return (0);
+	}
+	rac(&sta, &stb);
 	helper(&sta, &stb);
 	delete_linked_list(&sta);
 	delete_linked_list(&stb);
 }
-	// while (stb && ft_lstsize(stb) >= 4)
-	// {
-	// 	push_a(&sta, &stb);
-	// 	ft_quick(&sta);
-	// }
-	// if (ft_lstsize(stb) == 2)
-	// 	last_two(&stb, &sta);
-	// if (ft_lstsize(stb) == 1)
-	// 	ft_pa(ft_lstnew(stb->content), &sta, &stb);

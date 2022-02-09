@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:58:48 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 14:47:14 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:31:15 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int		bot_or_top(t_list **stb, int pos);
 int		nb_mv(t_list **stb, int pos);
 int		found_node(t_list **stb, int min, int max);
 int		does_exist(t_list **stb, int content);
+void	send_top_by_ra(t_list **sta, int content);
+void	send_top_by_rra(t_list **sta, int content);
+void	push_min(t_list **sta, t_list **stb);
+void	sizefive(t_list **sta, t_list **stb);
 
 void	eco_space(t_list *stb, t_list *sta, int *log);
 int		ft_checker(t_list **sta);

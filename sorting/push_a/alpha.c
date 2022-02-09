@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:23:33 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 14:48:50 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:40:12 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	to_top(t_list **stb, int min, int max)
 
 	tmp = *stb;
 	pos = found_node(stb, min, max);
-	if (bot_or_top(stb, pos) == 0)
+	if (pos == -1)
+		ft_rrb(stb);
+	else if (bot_or_top(stb, pos) == 0)
 		send_top_by_rb(stb, get_content(stb, pos));
 	else
 		send_top_by_rrb(stb, get_content(stb, pos));

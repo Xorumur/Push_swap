@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:30:41 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 14:50:16 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 16:39:54 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	bot_or_top(t_list **stb, int pos)
 {
-	if (pos < ft_lstsize(*stb) / 2)
+	if (pos <= ft_lstsize(*stb) / 2)
 		return (0);
 	else
 		return (1);
@@ -39,6 +39,7 @@ int	found_node(t_list **stb, int min, int max)
 
 	temp = -1;
 	tmp = *stb;
+	fill_node(stb);
 	while (tmp->next != NULL)
 	{
 		if (tmp->content <= max && tmp->content >= min)
@@ -50,6 +51,7 @@ int	found_node(t_list **stb, int min, int max)
 		}
 		tmp = tmp->next;
 	}
+	fill_node(stb);
 	return (temp);
 }
 

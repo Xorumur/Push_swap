@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:24:23 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 14:51:16 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:01:03 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	ft_attrib(t_list **sta, int argc, char **argv)
 	char	**split;
 
 	i = 0;
-	if (argc == 2)
+	if (argc == 1)
+		return (-1);
+	else if (argc == 2)
 		split = ft_split(argv[1], ' ');
 	else
 		split = &argv[1];
