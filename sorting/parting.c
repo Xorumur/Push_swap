@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:13:22 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 17:16:10 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:27:32 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int	*parting(t_list **sta)
 	log = ft_bubblesortright(log, size);
 	part[0] = log[size / 3];
 	part[1] = log[2 * size / 3];
+	free(log);
 	return (part);
 }

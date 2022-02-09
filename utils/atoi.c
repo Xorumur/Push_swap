@@ -6,13 +6,13 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:19:53 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/18 11:20:55 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:22:11 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
-static int	ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

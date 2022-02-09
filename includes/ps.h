@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 16:58:48 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 18:22:47 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:47:14 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,19 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+/*			TEST		*/
+void	alpha(t_list **sta, t_list **stb, int *log);
+void	to_top(t_list **stb, int min, int max);
+int		bot_or_top(t_list **stb, int pos);
+int		nb_mv(t_list **stb, int pos);
+int		found_node(t_list **stb, int min, int max);
+int		does_exist(t_list **stb, int content);
 
 void	eco_space(t_list *stb, t_list *sta, int *log);
 int		ft_checker(t_list **sta);
+void	helper(t_list **sta, t_list **stb);
+int		ft_isdigit(int c);
+int		check_letter(char **argv);
 /*			RULES		*/
 void	ft_pa(t_list *new, t_list **sta, t_list **stb);
 void	ft_pb(t_list *new, t_list **sta, t_list **stb);
@@ -80,7 +90,7 @@ void	ft_dut3(t_list **sta);
 void	ft_tud3(t_list **sta);
 void	ft_tdu3(t_list **sta);
 
-void	push_a(t_list **sta, t_list **stb);
+void	push_a(t_list **sta, t_list **stb, int *log);
 int		*log_stb(t_list **stb, int *log);
 void	ft_quick(t_list **sta);
 // void	first_encounter(t_list **stb, int *log, int len);

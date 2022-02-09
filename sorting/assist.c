@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 12:26:14 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 17:20:01 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:39:51 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	assist_cutting(t_list **sta, t_list **stb, int end, int *log)
 			bottom_a(sta);
 		tmp = *sta;
 	}
+	free(log);
 }
 
 void	last_four(t_list **stb)

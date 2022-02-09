@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:24:23 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 18:23:34 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/02/09 14:51:16 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,21 @@ int	ft_attrib(t_list **sta, int argc, char **argv)
 		ft_lstadd_back(sta, ft_lstnew(ft_atoi(split[i])));
 		i++;
 	}
-	return (ft_lstsize(*sta));
+	i = 0;
+	if (argc == 2)
+	{
+		while (split[i])
+			free(split[i++]);
+		free(split);
+	}
+	return (0);
 }
 
 int	ft_checker(t_list **sta)
 {
-	int i;
-	int j;
-	int *log;
+	int	i;
+	int	j;
+	int	*log;
 
 	log = stack_log(sta);
 	log = ft_bubblesortright(log, ft_lstsize(*sta));
@@ -46,11 +53,12 @@ int	ft_checker(t_list **sta)
 		j = i + 1;
 		while (j < ft_lstsize(*sta))
 		{
-			if (log[i] == log[j])
+			if (log[i] == log[j] || log[i] > 2147483647)
 				return (-1);
 			j++;
 		}
 		i++;
 	}
+	free(log);
 	return (0);
 }

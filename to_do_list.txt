@@ -1,0 +1,9 @@
+Gerer les leaks.
+
+Liste de tous les endroit ou je malloc : 
+
+push_a/push_a.c log_stb
+sorting/det_case.c det_first_pack
+sorting/parting.c stack_log
+sorting/parting.c parting
+SPLIT
