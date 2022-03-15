@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:24:23 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 15:01:03 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:36:28 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ int	ft_checker(t_list **sta)
 		while (j < ft_lstsize(*sta))
 		{
 			if (log[i] == log[j] || log[i] > 2147483647)
+			{
+				free(log);
 				return (-1);
+			}
 			j++;
 		}
 		i++;

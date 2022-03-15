@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:33:38 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/01/24 17:18:43 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:41:56 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,5 @@ void	sizetree(t_list **sta)
 		ft_tud3(sta);
 	else if (case_pack(pack) == 321)
 		ft_tdu3(sta);
+	free(pack);
 }

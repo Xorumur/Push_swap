@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 15:17:46 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/09 15:46:45 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:42:37 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ void	sizefive(t_list **sta, t_list **stb)
 	ft_pa(ft_lstnew(tmp->content), sta, stb);
 	tmp = *stb;
 	ft_pa(ft_lstnew(tmp->content), sta, stb);
+	delete_linked_list(sta);
+	delete_linked_list(stb);
 }
