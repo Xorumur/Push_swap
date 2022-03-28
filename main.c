@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:17:22 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/03/15 16:31:50 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:18:29 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 
 	sta = NULL;
 	stb = NULL;
-	if (ft_attrib(&sta, argc, argv)
+	if (ft_attrib(&sta, argc, argv) == -1
 		|| ft_checker(&sta) == -1 || check_letter(&argv[1]) == -1)
 	{
 		write(1, "Error\n", 6);

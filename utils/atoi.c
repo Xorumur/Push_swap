@@ -6,7 +6,7 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:19:53 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/02/08 14:22:11 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:00:46 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_iswspace(char c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long long int	ft_atoi(const char *str)
 {
 	size_t				index;
 	int					negative;

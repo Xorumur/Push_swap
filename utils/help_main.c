@@ -6,16 +6,27 @@
 /*   By: mlecherb <mlecherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 11:24:23 by mlecherb          #+#    #+#             */
-/*   Updated: 2022/03/15 15:36:28 by mlecherb         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:19:32 by mlecherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ps.h"
 
+static void	free_tab(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
+}
+
 int	ft_attrib(t_list **sta, int argc, char **argv)
 {
-	int		i;
-	char	**split;
+	int				i;
+	char			**split;
+	long long int	nb;
 
 	i = 0;
 	if (argc == 1)
@@ -24,19 +35,19 @@ int	ft_attrib(t_list **sta, int argc, char **argv)
 		split = ft_split(argv[1], ' ');
 	else
 		split = &argv[1];
-	*sta = ft_lstnew(ft_atoi(split[i++]));
+	nb = ft_atoi(split[i++]);
+	if (nb > INT_MAX || nb < INT_MIN)
+		return (-1);
+	*sta = ft_lstnew(nb);
 	while (split[i])
 	{
-		ft_lstadd_back(sta, ft_lstnew(ft_atoi(split[i])));
-		i++;
+		nb = ft_atoi(split[i++]);
+		if (nb > INT_MAX || nb < INT_MIN)
+			return (-1);
+		ft_lstadd_back(sta, ft_lstnew(nb));
 	}
-	i = 0;
 	if (argc == 2)
-	{
-		while (split[i])
-			free(split[i++]);
-		free(split);
-	}
+		free_tab(split);
 	return (0);
 }
 
@@ -55,7 +66,7 @@ int	ft_checker(t_list **sta)
 		j = i + 1;
 		while (j < ft_lstsize(*sta))
 		{
-			if (log[i] == log[j] || log[i] > 2147483647)
+			if (log[i] == log[j])
 			{
 				free(log);
 				return (-1);
